@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('packet_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('planning_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('total_price');
+            $table->enum('status', ['success', 'pending'])->default('pending');
             $table->timestamps();
         });
     }

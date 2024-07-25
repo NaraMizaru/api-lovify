@@ -31,6 +31,14 @@ Route::prefix('/v1/auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 
+Route::prefix('/v1')->group(function() {
+    Route::get('/', function() {
+        return response()->json([
+            'messsage' => 'Happy fecthing'
+        ], 200);
+    });
+});
+
 // Route::get('/admin/home')
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:sanctum'], function() {
